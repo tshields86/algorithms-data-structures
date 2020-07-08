@@ -7,37 +7,37 @@ class Node {
 
 class Queue {
   constructor() {
-    this.first = this.last = null;
+    this.head = this.tail = null;
     this.size = 0;
   }
 
-  /* Enqueues an element onto the queue represented by this list. */
+  /* Inserts the specified element into this queue. */
   enqueue(value) {
-    if (this.isEmpty()) this.first = this.last = new Node(value);
-    else this.last = this.last.next = new Node(value);
+    if (this.isEmpty()) this.head = this.tail = new Node(value);
+    else this.tail = this.tail.next = new Node(value);
     return ++this.size;
   }
 
-  /* Dequeues an element from the queue represented by this list. */
+  /* Retrieves and removes the head of this queue. */
   dequeue() {
     if (this.isEmpty()) return;
-    const oldFirst = this.first;
-    if (this.length === 1) this.first = this.last = null;
+    const oldHead = this.head;
+    if (this.length === 1) this.head = this.tail = null;
     else {
-      this.first = this.first.next
-      oldFirst.next = null;
+      this.head = this.head.next
+      oldHead.next = null;
     }
     this.size--;
-    return oldFirst.value;
+    return oldHead.value;
   }
 
-  /* Retrieves, but does not remove, the first (first element) of this list. */
+  /* Retrieves, but does not remove, the head of this queue. */
   peek() {
     if (this.isEmpty()) return;
-    return this.first.value;
+    return this.head.value;
   }
 
-  /* Returns true if this list is empty. */
+  /* Returns true if this queue is empty. */
   isEmpty() {
     return this.size === 0;
   }

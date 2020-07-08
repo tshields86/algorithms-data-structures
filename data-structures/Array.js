@@ -1,4 +1,4 @@
-class Array {
+class MockArray {
   constructor() {
     this.data = {};
     this.length = 0;
@@ -67,3 +67,5 @@ class Array {
     this.length++;
   }
 };
+
+module.exports = MockArray;
