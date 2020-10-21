@@ -22,9 +22,9 @@ class SinglyLinkedList {
 
   /* Inserts the specified element at the specified position in this list. */
   add(index, value) {
-    if (index < 0 || index >= this.size()) return; /* TODO: Throw IndexOutOfBoundsException */
-    if (index === 0) return this.insertFirst(value);
-    if (index === this.length) return this.insertLast(value);
+    if (index < 0 || index > this.size()) return; /* TODO: Throw IndexOutOfBoundsException */
+    if (index === 0) return this.addFirst(value);
+    if (index === this.size()) return this.addLast(value);
 
     const newNode = new Node(value);
     const beforeNode = this._getNode(index - 1);

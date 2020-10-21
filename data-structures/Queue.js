@@ -22,7 +22,7 @@ class Queue {
   dequeue() {
     if (this.isEmpty()) return;
     const oldHead = this.head;
-    if (this.length === 1) this.head = this.tail = null;
+    if (this.size === 1) this.head = this.tail = null;
     else {
       this.head = this.head.next
       oldHead.next = null;
